@@ -6,10 +6,6 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/aws/external"
-	"github.com/aws/aws-sdk-go-v2/service/s3"
-	"github.com/schollz/progressbar/v2"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -17,6 +13,11 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/external"
+	"github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/schollz/progressbar/v2"
 )
 
 // represents the duration from making an S3 GetObject request to getting the first byte and last byte
@@ -608,10 +609,10 @@ func cleanup() {
 
 // gets the hostname or the EC2 instance ID
 func getHostname() string {
-	instanceId := getInstanceId()
-	if instanceId != "" {
-		return instanceId
-	}
+	// instanceId := getInstanceId()
+	// if instanceId != "" {
+	// 	return instanceId
+	// }
 
 	hostname, err := os.Hostname()
 	if err != nil {
