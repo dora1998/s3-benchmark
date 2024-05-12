@@ -67,7 +67,7 @@ var region = getRegion()
 var endpoint string
 
 // the EC2 instance type if available
-var instanceType = getInstanceType()
+var instanceType = ""
 
 // the script will automatically create an S3 bucket to use for the test, and it tries to get a unique bucket name
 // by generating a sha hash of the hostname
